@@ -9,14 +9,14 @@ type Props = {
 export default function JobList({ jobs }: Props) {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 pb-20'>
-      {jobs.map((job) => (
+      {jobs?.map((job) => (
         <Link
           key={job.ID}
           href={`/job/${job.ID}`}
           className='rounded-lg shadow-md bg-white p-7 cardAnimation'
         >
           <div className='flex items-center'>
-            <h3 className='flex flex-1 text-[#0F4A7B] text-lg font-bold'>
+            <h3 className='flex flex-1 text-[#0F4A7B] text-lg font-bold capitalize'>
               {job.Title}
             </h3>
             <p className='text-[#0F4A7B] font-bold'>${job.Salary}</p>

@@ -16,7 +16,7 @@ async function Jobs() {
   return (
     <>
       {jobs?.length === 0 ? (
-        <p className='text-center text-gray-600'>No jobs available</p>
+        <p className='text-center text-[#707071] text-lg'>No jobs available</p>
       ) : (
         <JobList jobs={jobs} />
       )}
