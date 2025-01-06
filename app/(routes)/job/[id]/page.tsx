@@ -23,7 +23,7 @@ export default async function JobPage({ params }: { params: { id: string } }) {
                   {job.Title}
                 </h2>
 
-                <div className='flex items-center my-2'>
+                <div className='flex items-center pt-2'>
                   <MapPin className='w-5 h-5 text-blue-500' />
                   <p className='text-[#707071] mr-3'>{job.Location}</p>
                   <DollarSign className='w-5 h-5 text-blue-500' />
