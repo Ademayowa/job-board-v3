@@ -10,12 +10,12 @@ const config = {
   ],
   prefix: '',
   theme: {
-    container: {
-      center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
+    screens: {
+      sm: '320px',
+      md: '768px',
+      lg: '992px',
+      xl: '1440px',
+      xxl: '2000px',
     },
     extend: {
       backgroundImage: (theme) => ({
