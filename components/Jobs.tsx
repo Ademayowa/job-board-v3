@@ -2,26 +2,28 @@ import { fetchAllJobs } from '@/lib/api';
 import JobList from '@/components/JobList';
 import { Job } from '@/types';
 
-async function Jobs() {
-  let jobs: Job[] = [];
-
+export default async function Jobs() {
   try {
-    jobs = await fetchAllJobs();
+    const jobs: Job[] = await fetchAllJobs();
+
+    if (jobs.length === 0) {
+      return (
+        <div className='mx-auto w-10/12 py-10'>
+          <p className='text-center text-[#707071]'>No jobs available</p>
+        </div>
+      );
+    }
+
+    return <JobList jobs={jobs} />;
   } catch (error) {
     console.error('Error fetching jobs:', error);
-    // Fallback to an empty array in case of an error
-    jobs = [];
+
+    return (
+      <div className='mx-auto w-10/12 py-10'>
+        <p className='text-center text-red-600'>
+          Failed to load jobs. Please try again later.
+        </p>
+      </div>
+    );
   }
-
-  return (
-    <>
-      {jobs?.length === 0 ? (
-        <p className='text-center text-[#707071] text-lg'>No jobs available</p>
-      ) : (
-        <JobList jobs={jobs} />
-      )}
-    </>
-  );
 }
-
-export default Jobs;
