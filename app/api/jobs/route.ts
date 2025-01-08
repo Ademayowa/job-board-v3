@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
+
 export async function GET(req: NextRequest) {
   try {
     // Make GET request to the external API
-    const response = await fetch('http://localhost:8080/jobs', {
+    const response = await fetch(`${API_URL}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
