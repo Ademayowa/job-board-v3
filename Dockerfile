@@ -1,28 +1,18 @@
-# Multistage Build
-FROM node:18-alpine AS builder
+FROM node
 
 # Set the working directory
 WORKDIR /app
 
 # Copy package files to install dependencies
-COPY package.json yarn.lock ./
+COPY package*.json ./
 
 # Install dependencies
-RUN yarn install --frozen-lockfile
+RUN yarn install
 
 # Copy the rest of the application code
 COPY . .
 
-# Build the Next.js application
-RUN yarn build
-
-FROM node:18-alpine
-WORKDIR /app
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/package.json ./package.json
-RUN yarn install --frozen-lockfile --production
-
 EXPOSE 3000
 
 # Run the application
-CMD ["yarn", "start"]
+CMD yarn run dev
