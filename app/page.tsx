@@ -3,9 +3,9 @@ import Jobs from '@/components/Jobs';
 import BaseLayout from '@/components/layouts/BaseLayout';
 import Title from '@/components/Title';
 
-// const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
+const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
 
-const API_URL = 'http://localhost:8080';
+// const API_URL = 'http://localhost:8080';
 
 async function fetchJobs(searchParams: { title?: string; location?: string }) {
   const query = new URLSearchParams(searchParams).toString();
