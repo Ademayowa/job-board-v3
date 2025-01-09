@@ -1,21 +1,24 @@
 import { Job } from '@/types';
 
 // const BASE_URL = 'http://localhost:3000';
-const BASE_URL = 'https://job-board-v3.vercel.app/';
-const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
+const BASE_URL = 'https://job-board-v3.vercel.app';
+// const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
 
 // const API_URL = 'http://localhost:8080/jobs';
 
 // Fetch single job
 export async function fetchJob(id: string): Promise<Job | null> {
   try {
-    const response = await fetch(`${API_URL}/${id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-store', // Ensure fresh data for each request
-    });
+    const response = await fetch(
+      `https://go-restapi-v2.onrender.com/jobs/${id}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        cache: 'no-store', // Ensure fresh data for each request
+      }
+    );
 
     if (!response.ok) {
       return null;
@@ -23,7 +26,7 @@ export async function fetchJob(id: string): Promise<Job | null> {
 
     return response.json();
   } catch (error) {
-    console.error('Error fetching job:', error);
+    console.error('Error fetching job...:', error);
     return null;
   }
 }
@@ -31,7 +34,7 @@ export async function fetchJob(id: string): Promise<Job | null> {
 // Fetch all jobs
 export async function fetchAllJobs(): Promise<Job[]> {
   try {
-    const response = await fetch(`${BASE_URL}/api/jobs`, {
+    const response = await fetch(`https://job-board-v3.vercel.app/api/jobs`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +43,7 @@ export async function fetchAllJobs(): Promise<Job[]> {
     });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch jobs');
+      throw new Error('Failed to fetch jobs...api route');
     }
 
     return response.json();
