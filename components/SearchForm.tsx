@@ -33,9 +33,9 @@ export default function SearchForm() {
   return (
     <form
       onSubmit={handleSearch}
-      className='flex flex-col md:flex-row items-center bg-white rounded-lg p-5 md:w-10/12 w-full'
+      className='flex flex-col md:flex-row gap-3 items-center bg-white px-5 md:py-5 py-8 rounded-lg md:w-10/12 w-full'
     >
-      <div className='flex items-center w-full md:mb-0 md:h-auto rounded-md bg-transparent'>
+      <div className='flex items-center w-full rounded-md'>
         <Search className='h-5 w-5 text-blue-500 hidden md:block mr-2' />
 
         <input
@@ -43,7 +43,7 @@ export default function SearchForm() {
           placeholder='Search a job by title'
           value={title}
           onChange={handleInputChange}
-          className='mb-4 w-full py-2 rounded-md border border-slate-500 bg-transparent leading-10 outline-none md:mb-0 md:h-auto md:border-none'
+          className='w-full h-14 rounded-md border border-slate-500 outline-none md:border-none'
         />
       </div>
 

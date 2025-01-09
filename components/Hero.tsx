@@ -3,7 +3,7 @@ import BaseLayout from '@/components/layouts/BaseLayout';
 
 export default function Hero() {
   return (
-    <section className='bg-[#0F4A7B] pt-16 py-24'>
+    <section className='bg-[#0F4A7B] pt-10 py-24'>
       <BaseLayout>
         <div className='mt-10 flex flex-col items-center justify-center'>
           <div>
