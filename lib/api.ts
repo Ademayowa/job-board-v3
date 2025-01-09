@@ -1,9 +1,9 @@
 import { Job } from '@/types';
 
 const BASE_URL = 'http://localhost:3000';
-// const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
+const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
 
-const API_URL = 'http://localhost:8080/jobs';
+// const API_URL = 'http://localhost:8080/jobs';
 
 // Fetch single job
 export async function fetchJob(id: string): Promise<Job | null> {

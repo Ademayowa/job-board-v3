@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
+const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
 
-const API_URL = 'http://localhost:8080/jobs';
+// const API_URL = 'http://localhost:8080/jobs';
 
 export async function GET(req: NextRequest) {
   try {
