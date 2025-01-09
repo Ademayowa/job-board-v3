@@ -8,7 +8,7 @@ export default function Hero() {
         <div className='mt-10 flex flex-col items-center justify-center'>
           <div>
             <h1 className='text-3xl font-bold capitalize md:text-[64px] md:leading-tight text-white'>
-              The easiest way to Get your golang & devops dream jobs.
+              The easiest way to get your golang & devOps dream jobs.
             </h1>
 
             <p className='mt-5 text-lg font-light !leading-normal text-white md:text-2xl w-11/12 mb-5'>

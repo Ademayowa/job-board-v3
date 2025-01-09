@@ -3,9 +3,15 @@ import { fetchJob } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import { Job } from '@/types';
 import BaseLayout from '@/components/layouts/BaseLayout';
-import { MapPin, DollarSign, ChevronsRight } from 'lucide-react';
+import { MapPin, DollarSign } from 'lucide-react';
 
-export default async function JobPage({ params }: { params: { id: string } }) {
+type Props = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function JobPage({ params }: Props) {
   const job = await fetchJob(params.id);
 
   if (!job) {
