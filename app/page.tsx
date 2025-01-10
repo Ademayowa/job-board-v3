@@ -3,13 +3,17 @@ import Jobs from '@/components/Jobs';
 import BaseLayout from '@/components/layouts/BaseLayout';
 import Title from '@/components/Title';
 
-// const API_URL = 'https://go-restapi-v2.onrender.com/jobs';
+type SearchProps = {
+  searchParams: {
+    title?: string;
+  };
+};
 
-// const API_URL = 'http://localhost:8080';
-
-async function fetchJobs(searchParams: { title?: string; location?: string }) {
+const API_URL = 'https://go-restapi-prod.onrender.com';
+async function fetchJobs(searchParams: { title?: string }) {
   const query = new URLSearchParams(searchParams).toString();
-  const res = await fetch(`https://go-restapi-v2.onrender.com/jobs?${query}`, {
+
+  const res = await fetch(`${API_URL}/jobs?${query}`, {
     cache: 'no-store',
   });
 
@@ -17,11 +21,7 @@ async function fetchJobs(searchParams: { title?: string; location?: string }) {
   return res.json();
 }
 
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams: { title?: string; location?: string };
-}) {
+export default async function HomePage({ searchParams }: SearchProps) {
   const jobs = await fetchJobs(searchParams);
 
   return (
