@@ -13,7 +13,7 @@ export default function JobList({ jobs }: Props) {
         <Link
           key={job.ID}
           href={`/job/${job.ID}`}
-          className='rounded-lg shadow-md bg-white p-7 cardAnimation'
+          className='rounded-lg shadow-sm bg-white p-7 cardAnimation'
         >
           <div className='flex items-center'>
             <h3 className='flex flex-1 text-[#0F4A7B] text-lg font-bold capitalize'>
