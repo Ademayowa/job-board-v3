@@ -1,8 +1,8 @@
 export type Job = {
-  ID: string;
-  Title: string;
-  Description: string;
-  Location: string;
-  Salary: string;
-  Duties: string[];
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  salary: string;
+  duties: string[];
 };
