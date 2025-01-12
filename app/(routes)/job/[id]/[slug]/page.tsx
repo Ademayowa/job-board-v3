@@ -1,20 +1,26 @@
-import Link from 'next/link';
 import { fetchJob } from '@/lib/api';
 import { notFound } from 'next/navigation';
-import { Job } from '@/types';
-import BaseLayout from '@/components/layouts/BaseLayout';
 import { MapPin, DollarSign } from 'lucide-react';
+import BaseLayout from '@/components/layouts/BaseLayout';
 
 type Props = {
   params: {
     id: string;
+    slug: string;
   };
 };
 
 export default async function JobPage({ params }: Props) {
-  const job = await fetchJob(params.id);
+  const { id, slug } = params;
+  const job = await fetchJob(id);
 
   if (!job) {
+    notFound();
+  }
+
+  // Validate slug
+  const expectedSlug = job.title.toLowerCase().replace(/\s+/g, '-');
+  if (slug !== expectedSlug) {
     notFound();
   }
 
