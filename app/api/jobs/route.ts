@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const API_URL = 'https://go-restapi-prod.onrender.com';
+// const API_URL = 'http://localhost:8080';
 export async function GET(req: NextRequest) {
   try {
     // Make GET request to the external API

@@ -1,5 +1,6 @@
-import { fetchJob } from '@/lib/api';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { fetchJob } from '@/lib/api';
 import { MapPin, DollarSign } from 'lucide-react';
 import BaseLayout from '@/components/layouts/BaseLayout';
 
@@ -61,11 +62,11 @@ export default async function JobPage({ params }: Props) {
                   ))}
                 </div>
 
-                <div className='flex mt-3'>
+                <Link target='_blank' href={`${job.url}`} className='flex mt-3'>
                   <button className='rounded bg-[#FF5555] px-10 py-4 text-white shadow-sm hover:bg-red-600'>
                     Apply Now
                   </button>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
