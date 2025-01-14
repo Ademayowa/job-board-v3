@@ -1,9 +1,9 @@
 import { Job } from '@/types';
 
-// const BASE_URL = 'http://localhost:3000';
 const BASE_URL = 'https://job-board-v3.vercel.app/';
 const API_URL = 'https://go-restapi-prod.onrender.com';
 
+// const BASE_URL = 'http://localhost:3000';
 // const API_URL = 'http://localhost:8080';
 
 // Fetch single job

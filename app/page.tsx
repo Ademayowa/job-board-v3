@@ -9,6 +9,7 @@ type SearchProps = {
   };
 };
 
+// const API_URL = 'http://localhost:8080';
 const API_URL = 'https://go-restapi-prod.onrender.com';
 async function fetchJobs(searchParams: { title?: string }) {
   const query = new URLSearchParams(searchParams).toString();
