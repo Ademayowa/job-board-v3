@@ -40,7 +40,7 @@ export default function SearchForm() {
 
         <input
           type='text'
-          placeholder='Search a job by title E.g golang backend engineer'
+          placeholder='Search jobs by title'
           value={title}
           onChange={handleInputChange}
           className='w-full h-14 rounded-md border border-slate-500 outline-none md:border-none'
