@@ -43,7 +43,7 @@ export default function SearchForm() {
           placeholder='Search jobs by title'
           value={title}
           onChange={handleInputChange}
-          className='w-full h-14 rounded-md border border-slate-500 outline-none md:border-none'
+          className='w-full h-14 pl-4 md:pl-0 lg:pl-0 rounded-md border border-slate-500 outline-none md:border-none'
         />
       </div>
 
