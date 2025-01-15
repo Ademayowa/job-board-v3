@@ -1,7 +1,7 @@
 <div align="center">
  <br />
-  <img src="https://res.cloudinary.com/dpxs9ause/image/upload/c_fill,g_auto,h_250,w_970/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative,l_text:montserrat_25_style_light_align_center:Shop%20Now,w_0.5,y_0.18/v1736973147/job-board-for-go/homepage_h3uqie.png" alt="Project Banner">
-    <h3 align="center">Get Golang and DevOps Job Board</h3>
+  <img src="https://res.cloudinary.com/dpxs9ause/image/upload/v1736973147/job-board-for-go/homepage_h3uqie.png" alt="Project Banner">
+    <h3 align="center">A Job Board for Getting Golang and DevOps Jobs</h3>
   <br />
 </div>
 
@@ -47,3 +47,5 @@ yarn install
 ```bash
 yarn run dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
