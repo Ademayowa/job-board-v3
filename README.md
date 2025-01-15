@@ -1,7 +1,7 @@
 <div align="center">
  <br />
-  <img src="https://res.cloudinary.com/dpxs9ause/image/upload/v1736973147/job-board-for-go/homepage_h3uqie.png" alt="Project Banner">
-    <h3 align="center">A Job Board for Getting Golang and DevOps Jobs</h3>
+  <img src="https://res.cloudinary.com/dpxs9ause/image/upload/c_thumb,w_200,g_face/v1736974119/job-board-for-go/landing_beo5ow.png" alt="Project Banner">
+    <h3>A Job Board for Getting Golang and DevOps Jobs</h3>
   <br />
 </div>
 
