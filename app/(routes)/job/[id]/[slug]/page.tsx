@@ -30,9 +30,9 @@ export default async function JobPage({ params }: Props) {
       <BaseLayout>
         <div className='py-10 pb-10'>
           <div className='bg-white rounded-2xl drop-shadow-md w-full lg:w-10/12 mx-auto'>
-            <div className='lg:px-10 px-6 py-10 pb-16'>
+            <div className='lg:px-10 px-6 py-14'>
               <div>
-                <h2 className='text-[#0F4A7B] text-lg md:text-2xl font-bold mt-2 capitalize'>
+                <h2 className='text-[#0F4A7B] text-lg md:text-2xl font-bold ml-1 capitalize'>
                   {job.title}
                 </h2>
 
@@ -45,26 +45,31 @@ export default async function JobPage({ params }: Props) {
               </div>
               <hr className='border-b border-red-200' />
 
-              <div className='mt-5'>
-                <h3 className='font-bold my-3 text-[#707071]'>Summary</h3>
-                <p className='max-w-4xl sm:text-sm md:text-base text-[#707071] !leading-7'>
+              <div className='mt-7'>
+                <h3 className='font-bold my-5 text-lg text-[#707071]'>
+                  Summary
+                </h3>
+                <p className='max-w-3xl text-[#707071] !leading-7'>
                   {job.description}
                 </p>
 
-                <div className='max-w-4xl sm:text-sm md:text-base text-[#707071] !leading-7'>
-                  <h3 className='font-bold !text-base my-3'>
+                <div className='max-w-3xl text-[#707071] !leading-7'>
+                  <h3 className='font-bold text-lg mt-10 mb-5'>
                     Responsibilities
                   </h3>
                   {job.duties.map((duty, index) => (
-                    <ul key={index} className='flex items-center list-disc'>
+                    <ul
+                      key={index}
+                      className='flex items-center pl-4 list-disc'
+                    >
                       <li>{duty}</li>
                     </ul>
                   ))}
                 </div>
 
-                <Link target='_blank' href={`${job.url}`} className='flex mt-3'>
-                  <button className='rounded bg-[#FF5555] px-8 py-3 text-white shadow-sm hover:bg-red-600'>
-                    Apply Now
+                <Link target='_blank' href={`${job.url}`} className='flex mt-4'>
+                  <button className='rounded bg-[#FF5555] px-5 py-3.5 text-white shadow-sm hover:bg-red-600'>
+                    Apply for this position
                   </button>
                 </Link>
               </div>
