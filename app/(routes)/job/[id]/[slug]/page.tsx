@@ -37,7 +37,7 @@ export default async function JobPage({ params }: Props) {
                 </h2>
 
                 <div className='flex items-center pt-2 pb-1'>
-                  <MapPin className='w-5 h-5 text-blue-500' />
+                  <MapPin className='w-5 h-5 text-blue-500 mr-1' />
                   <p className='text-[#707071] mr-3'>{job.location}</p>
                   <DollarSign className='w-5 h-5 text-blue-500' />
                   <p className='text-[#707071]'>{job.salary}</p>
@@ -63,7 +63,7 @@ export default async function JobPage({ params }: Props) {
                 </div>
 
                 <Link target='_blank' href={`${job.url}`} className='flex mt-3'>
-                  <button className='rounded bg-[#FF5555] px-10 py-4 text-white shadow-sm hover:bg-red-600'>
+                  <button className='rounded bg-[#FF5555] px-8 py-3 text-white shadow-sm hover:bg-red-600'>
                     Apply Now
                   </button>
                 </Link>

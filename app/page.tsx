@@ -25,8 +25,6 @@ async function fetchJobs(searchParams: { title?: string }) {
 export default async function HomePage({ searchParams }: SearchProps) {
   const jobs = await fetchJobs(searchParams);
 
-  console.log(jobs);
-
   return (
     <>
       <Hero />
