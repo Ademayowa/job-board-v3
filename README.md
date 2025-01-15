@@ -1,6 +1,6 @@
-<div align="center">
+<div>
  <br />
-  <img src="https://res.cloudinary.com/dpxs9ause/image/upload/c_thumb,w_200,g_face/v1736974119/job-board-for-go/landing_beo5ow.png" alt="Project Banner">
+  <img src="https://res.cloudinary.com/dpxs9ause/image/upload/v1736974119/job-board-for-go/landing_beo5ow.png" alt="Project Banner">
     <h3>A Job Board for Getting Golang and DevOps Jobs</h3>
   <br />
 </div>
