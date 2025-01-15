@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Job Board',
-  description: 'Job board with Go backend',
+  title: 'Golang | DevOps Jobs',
+  description: 'A job board for Golang and DevOps jobs',
 };
 
 export default function RootLayout({
