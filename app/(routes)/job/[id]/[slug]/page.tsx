@@ -45,7 +45,7 @@ export default async function JobPage({ params }: Props) {
               </div>
               <hr className='border-b border-red-200' />
 
-              <div className='mt-10'>
+              <div className='mt-7'>
                 <h3 className='font-bold my-5 text-lg text-[#707071]'>
                   Summary
                 </h3>
