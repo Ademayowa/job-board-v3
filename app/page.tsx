@@ -37,9 +37,9 @@ export default async function HomePage({ searchParams }: SearchProps) {
         {jobs?.length > 0 ? (
           <Jobs jobs={jobs} />
         ) : (
-          <div className='text-center py-20'>
-            <p className='text-xl font-semibold text-[#707071]'>
-              No jobs found matching your search criteria
+          <div className='pt-5 pb-20'>
+            <p className='text-lg text-[#707071]'>
+              No jobs found for your search criteria
             </p>
           </div>
         )}
