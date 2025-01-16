@@ -7,15 +7,19 @@ import { Search } from 'lucide-react';
 export default function SearchForm() {
   const router = useRouter();
   const [title, setTitle] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (title.trim()) {
+      setLoading(true); // Loading when search begins
       router.push(`/?title=${encodeURIComponent(title)}`);
     } else {
       router.push('/'); // Clear the URL when input is empty
     }
+
+    setTimeout(() => setLoading(false), 1000); // Stops loading after 1 second
   };
 
   const handleInputChange = useCallback(
@@ -40,6 +44,7 @@ export default function SearchForm() {
 
         <input
           type='text'
+          required
           placeholder='Search jobs by title'
           value={title}
           onChange={handleInputChange}
@@ -49,9 +54,14 @@ export default function SearchForm() {
 
       <button
         type='submit'
-        className='h-14 px-6 sm:w-full md:w-2/12 bg-[#FF5555]  hover:bg-red-600 text-white rounded-md shadow-sm'
+        className={`h-14 px-6 sm:w-full md:w-2/12 rounded-md shadow-sm flex items-center justify-center ${
+          loading
+            ? 'bg-gray-400 text-white cursor-not-allowed'
+            : 'bg-[#FF5555] hover:bg-red-600 text-white'
+        }`}
+        disabled={loading}
       >
-        Search
+        {loading ? 'Searching...' : 'Search'}
       </button>
     </form>
   );
