@@ -9,8 +9,8 @@ type SearchProps = {
   };
 };
 
-// const API_URL = 'http://localhost:8080';
-const API_URL = 'https://go-restapi-prod.onrender.com';
+const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
+
 async function fetchJobs(searchParams: { title?: string }) {
   const query = new URLSearchParams(searchParams).toString();
 
