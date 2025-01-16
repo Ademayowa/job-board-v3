@@ -34,7 +34,15 @@ export default async function HomePage({ searchParams }: SearchProps) {
           <Title title='Latest Jobs' />
         </div>
 
-        <Jobs jobs={jobs} />
+        {jobs?.length > 0 ? (
+          <Jobs jobs={jobs} />
+        ) : (
+          <div className='text-center py-20'>
+            <p className='text-xl font-semibold text-[#707071]'>
+              No jobs found matching your search criteria
+            </p>
+          </div>
+        )}
       </BaseLayout>
     </>
   );
