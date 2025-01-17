@@ -11,7 +11,7 @@ export default function Hero() {
               The easiest way to get your golang & devOps dream jobs.
             </h1>
 
-            <p className='mt-5 text-lg font-light !leading-normal text-white md:text-2xl w-11/12 mb-5'>
+            <p className='my-5 text-lg font-light !leading-normal text-white md:text-2xl w-11/12'>
               Check the latest Go, SRE, and DevOps jobs with ease from companies
               hiring now.
             </p>
