@@ -9,7 +9,7 @@ type Props = {
 
 export default function JobList({ jobs }: Props) {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 pb-20'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-6 pt-4'>
       {jobs?.map((job) => {
         const slug = slugify(job.title, { lower: true });
 

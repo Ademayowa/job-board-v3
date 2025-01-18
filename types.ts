@@ -7,3 +7,11 @@ export type Job = {
   duties: string[];
   url?: string;
 };
+
+export type PaginationApiResponse = {
+  data: Job[];
+  meta: {
+    current_page: number;
+    total_pages: number;
+  };
+};
