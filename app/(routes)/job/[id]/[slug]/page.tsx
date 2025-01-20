@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { fetchJob } from '@/lib/api';
-import { MapPin, DollarSign } from 'lucide-react';
+import { MapPin, DollarSign, ChevronLeft } from 'lucide-react';
 import BaseLayout from '@/components/layouts/BaseLayout';
 
 type Props = {
@@ -29,6 +29,15 @@ export default async function JobPage({ params }: Props) {
     <section className='bg-[#F2F7FB]'>
       <BaseLayout>
         <div className='py-10 pb-10'>
+          <div className='w-full lg:w-10/12 mx-auto mt-3 mb-5'>
+            <Link
+              href='/'
+              className='flex items-center font-bold text-[#0F4A7B]'
+            >
+              <ChevronLeft /> Back to jobs
+            </Link>
+          </div>
+
           <div className='bg-white rounded-2xl drop-shadow-md w-full lg:w-10/12 mx-auto'>
             <div className='lg:px-10 px-6 py-14'>
               <div>
