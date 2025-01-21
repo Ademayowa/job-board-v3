@@ -40,24 +40,32 @@ export default async function JobPage({ params }: Props) {
 
   return (
     <section className='bg-[#F2F7FB]'>
-      <BaseLayout>
+      <BaseLayout className='px-0'>
         <div className='py-10 pb-10'>
-          <div className='w-full lg:w-10/12 mx-auto my-2'>
+          {/* <div className='w-full lg:w-10/12 mx-auto my-2'>
             <Button variant='ghost' asChild>
               <Link href='/' className='text-[#0F4A7B]'>
                 <ChevronLeft /> Back to jobs
               </Link>
             </Button>
-          </div>
+          </div> */}
 
           <div className='bg-white rounded-2xl drop-shadow-md w-full lg:w-10/12 mx-auto'>
-            <div className='lg:px-10 px-6 py-14'>
+            <div className='lg:px-10 px-6'>
+              <Button variant='ghost' asChild>
+                <Link href='/' className='text-[#707071] mt-7 !text-sm'>
+                  <ChevronLeft /> Back to jobs
+                </Link>
+              </Button>
+            </div>
+
+            <div className='lg:px-10 px-6 pb-14'>
               <div>
-                <h2 className='text-[#0F4A7B] text-xl font-bold ml-1 capitalize'>
+                <h2 className='text-[#0F4A7B] text-xl font-bold ml-1 capitalize mt-2'>
                   {job.title}
                 </h2>
 
-                <div className='flex items-center pt-4 pb-1'>
+                <div className='flex items-center pt-4 pb-3'>
                   <MapPin className='w-5 h-5 text-blue-500 mr-1' />
                   <p className='text-[#707071] mr-3'>{job.location}</p>
                   <DollarSign className='w-5 h-5 text-blue-500' />
