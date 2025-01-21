@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { fetchJob } from '@/lib/api';
 import { MapPin, DollarSign, ChevronLeft } from 'lucide-react';
 import BaseLayout from '@/components/layouts/BaseLayout';
+import { Button } from '@/components/ui/button';
 
 type Props = {
   params: {
@@ -41,13 +42,12 @@ export default async function JobPage({ params }: Props) {
     <section className='bg-[#F2F7FB]'>
       <BaseLayout>
         <div className='py-10 pb-10'>
-          <div className='w-full lg:w-10/12 mx-auto mt-3 mb-5'>
-            <Link
-              href='/'
-              className='flex items-center font-bold text-[#0F4A7B]'
-            >
-              <ChevronLeft /> Back to jobs
-            </Link>
+          <div className='w-full lg:w-10/12 mx-auto mt-3 mb-2'>
+            <Button variant='ghost' asChild>
+              <Link href='/' className='text-[#0F4A7B]'>
+                <ChevronLeft /> Back to jobs
+              </Link>
+            </Button>
           </div>
 
           <div className='bg-white rounded-2xl drop-shadow-md w-full lg:w-10/12 mx-auto'>
@@ -88,11 +88,14 @@ export default async function JobPage({ params }: Props) {
                   ))}
                 </div>
 
-                <Link target='_blank' href={`${job.url}`} className='flex mt-4'>
-                  <button className='rounded bg-[#FF5555] px-5 py-3.5 text-white shadow-sm hover:bg-red-600'>
+                <Button
+                  asChild
+                  className='mt-4 bg-[#FF5555] text-white shadow-sm hover:bg-red-600'
+                >
+                  <Link target='_blank' href={`${job.url}`}>
                     Apply for this position
-                  </button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
