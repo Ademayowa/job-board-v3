@@ -42,7 +42,7 @@ export default async function JobPage({ params }: Props) {
     <section className='bg-[#F2F7FB]'>
       <BaseLayout>
         <div className='py-10 pb-10'>
-          <div className='w-full lg:w-10/12 mx-auto mt-3 mb-2'>
+          <div className='w-full lg:w-10/12 mx-auto my-2'>
             <Button variant='ghost' asChild>
               <Link href='/' className='text-[#0F4A7B]'>
                 <ChevronLeft /> Back to jobs
@@ -70,11 +70,11 @@ export default async function JobPage({ params }: Props) {
                 <h3 className='font-bold my-5 text-lg text-[#707071]'>
                   Summary
                 </h3>
-                <p className='max-w-3xl text-[#707071] !leading-7'>
+                <p className='max-w-3xl text-[#707071] leading-loose'>
                   {job.description}
                 </p>
 
-                <div className='max-w-3xl text-[#707071] !leading-7'>
+                <div className='max-w-3xl text-[#707071] leading-loose'>
                   <h3 className='font-bold text-lg mt-10 mb-5'>
                     Responsibilities
                   </h3>
@@ -90,7 +90,7 @@ export default async function JobPage({ params }: Props) {
 
                 <Button
                   asChild
-                  className='mt-4 bg-[#FF5555] text-white shadow-sm hover:bg-red-600'
+                  className='mt-5 bg-[#FF5555] text-white shadow-sm hover:bg-red-600'
                 >
                   <Link target='_blank' href={`${job.url}`}>
                     Apply for this position
