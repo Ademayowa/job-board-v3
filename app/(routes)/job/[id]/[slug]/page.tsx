@@ -11,6 +11,18 @@ type Props = {
   };
 };
 
+// Generate metadata for job title
+export async function generateMetadata({ params }: Props) {
+  const { id } = params;
+  const job = await fetchJob(id);
+
+  if (job) {
+    return {
+      title: `${job.title}`,
+    };
+  }
+}
+
 export default async function JobPage({ params }: Props) {
   const { id, slug } = params;
   const job = await fetchJob(id);
