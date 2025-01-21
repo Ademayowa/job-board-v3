@@ -53,7 +53,7 @@ export default async function JobPage({ params }: Props) {
           <div className='bg-white rounded-2xl drop-shadow-md w-full lg:w-10/12 mx-auto'>
             <div className='lg:px-10 px-6'>
               <Button variant='ghost' asChild>
-                <Link href='/' className='text-[#707071] mt-7 !text-sm'>
+                <Link href='/' className='text-[#707071] mt-7 !text-sm -ml-1'>
                   <ChevronLeft /> Back to jobs
                 </Link>
               </Button>
