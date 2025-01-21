@@ -4,7 +4,7 @@ import BaseLayout from '@/components/layouts/BaseLayout';
 export default function Hero() {
   return (
     <section className='bg-[#0F4A7B] pt-10 py-24'>
-      <BaseLayout>
+      <BaseLayout className='px-5'>
         <div className='mt-10 flex flex-col items-center justify-center'>
           <div>
             <h1 className='text-3xl font-bold capitalize md:text-[64px] md:leading-tight text-white'>

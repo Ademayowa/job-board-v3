@@ -36,7 +36,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
   return (
     <>
       <Hero />
-      <BaseLayout>
+      <BaseLayout className='px-5'>
         <div className='pt-20'>
           <Title title='Latest Jobs' />
         </div>

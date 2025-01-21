@@ -40,16 +40,8 @@ export default async function JobPage({ params }: Props) {
 
   return (
     <section className='bg-[#F2F7FB]'>
-      <BaseLayout className='px-0'>
+      <BaseLayout>
         <div className='py-10 pb-10'>
-          {/* <div className='w-full lg:w-10/12 mx-auto my-2'>
-            <Button variant='ghost' asChild>
-              <Link href='/' className='text-[#0F4A7B]'>
-                <ChevronLeft /> Back to jobs
-              </Link>
-            </Button>
-          </div> */}
-
           <div className='bg-white rounded-2xl drop-shadow-md w-full lg:w-10/12 mx-auto'>
             <div className='lg:px-10 px-6'>
               <Button variant='ghost' asChild>

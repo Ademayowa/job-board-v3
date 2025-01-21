@@ -7,9 +7,5 @@ interface Props {
 }
 
 export default function BaseLayout({ children, className }: Props) {
-  return (
-    <div className={clsx('max-w-6xl mx-auto md:px-5', className)}>
-      {children}
-    </div>
-  );
+  return <div className={clsx('max-w-6xl mx-auto', className)}>{children}</div>;
 }
