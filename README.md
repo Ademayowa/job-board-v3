@@ -15,6 +15,7 @@
 ## <a name="features">🔋 Features</a>
 
 👉 **Job Search by Title**: A job search feature for gettting jobs by their title.
+👉 **Pagination**: A pagination feature that limits the number of jobs fetch per page.
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
