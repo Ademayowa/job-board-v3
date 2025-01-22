@@ -19,7 +19,7 @@ export default function SearchForm() {
       router.push('/'); // Clear the URL when input is empty
     }
 
-    setTimeout(() => setLoading(false), 1000); // Stops loading after 1 second
+    setTimeout(() => setLoading(false), 1000);
   };
 
   const handleInputChange = useCallback(
@@ -34,12 +34,18 @@ export default function SearchForm() {
     [router]
   );
 
+  // Clear URL & form using the close button
+  const handleClear = () => {
+    setTitle('');
+    router.push('/');
+  };
+
   return (
     <form
       onSubmit={handleSearch}
       className='flex flex-col md:flex-row gap-3 items-center bg-white px-5 md:py-4 py-8 rounded-lg md:w-10/12 w-full'
     >
-      <div className='flex items-center w-full rounded-md'>
+      <div className='flex items-center w-full rounded-md relative'>
         <Search className='h-6 w-6 text-blue-500 hidden md:block mr-2' />
 
         <input
@@ -50,6 +56,16 @@ export default function SearchForm() {
           onChange={handleInputChange}
           className='w-full h-14 pl-4 md:pl-0 lg:pl-0 rounded-md border border-slate-500 outline-none md:border-none'
         />
+
+        {title.trim() && (
+          <button
+            type='button'
+            onClick={handleClear}
+            className='absolute right-3 text-blue-500 hover:text-gray-700 focus:outline-none !text-3xl'
+          >
+            ×
+          </button>
+        )}
       </div>
 
       <button
