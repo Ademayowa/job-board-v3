@@ -18,7 +18,7 @@ export default function Loading() {
             fill='currentFill'
           />
         </svg>
-        <span className='text-[#707071]'>Loading...</span>
+        <span className='text-[#707071] text-2xl'></span>
       </div>
     </div>
   );

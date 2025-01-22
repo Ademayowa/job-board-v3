@@ -33,13 +33,15 @@ export default async function HomePage({ searchParams }: SearchProps) {
   const data = await fetchJobs(searchParams);
   const { data: jobs, meta } = data;
 
+  console.log(jobs);
+
   return (
     <>
       <Hero />
       <BaseLayout className='px-5'>
-        <div className='pt-20'>
+        {/* <div className='pt-20'>
           <Title title='Latest Jobs' />
-        </div>
+        </div> */}
 
         {jobs?.length > 0 ? (
           <>
