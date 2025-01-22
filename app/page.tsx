@@ -33,8 +33,6 @@ export default async function HomePage({ searchParams }: SearchProps) {
   const data = await fetchJobs(searchParams);
   const { data: jobs, meta } = data;
 
-  console.log(jobs);
-
   return (
     <>
       <Hero />
