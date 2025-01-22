@@ -46,7 +46,7 @@ export default function SearchForm() {
       className='flex flex-col md:flex-row gap-3 items-center bg-white px-5 md:py-4 py-8 rounded-lg md:w-10/12 w-full'
     >
       <div className='flex items-center w-full rounded-md relative'>
-        <Search className='h-5 w-5 text-blue-500 hidden md:block mr-2' />
+        <Search className='h-6 w-6 text-blue-500 hidden md:block mr-2' />
 
         <input
           type='text'
