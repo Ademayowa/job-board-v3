@@ -21,7 +21,7 @@ async function fetchJobs(searchParams: {
   const query = new URLSearchParams({ ...searchParams, limit: '6' }).toString(); // Fetch 6 jobs per page
 
   const res = await fetch(`${API_URL}/jobs?${query}`, {
-    cache: 'no-store',
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
   });
 
   if (!res.ok) throw new Error('Failed to fetch jobs');
