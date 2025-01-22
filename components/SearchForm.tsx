@@ -54,7 +54,7 @@ export default function SearchForm() {
           placeholder='Search jobs by title'
           value={title}
           onChange={handleInputChange}
-          className='w-full h-14 pl-4 md:pl-0 lg:pl-0 rounded-md border border-slate-500 outline-none md:border-none'
+          className='w-full h-14 mt-2 md:mt-0 pl-4 md:pl-0 lg:pl-0 rounded-md border border-slate-500 outline-none md:border-none'
         />
 
         {title.trim() && (
@@ -70,7 +70,7 @@ export default function SearchForm() {
 
       <button
         type='submit'
-        className={`h-14 px-6 sm:w-full md:w-2/12 rounded-md shadow-sm flex items-center justify-center ${
+        className={`h-14 px-6 sm:w-full md:w-2/12 rounded-md shadow-md flex items-center justify-center ${
           loading
             ? 'bg-gray-400 text-white cursor-not-allowed'
             : 'bg-[#FF5555] hover:bg-red-600 text-white'

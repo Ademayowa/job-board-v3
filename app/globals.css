@@ -6,6 +6,12 @@
   .cardAnimation {
     @apply transform hover:scale-105 transition duration-300 hover:shadow-2xl hover:shadow-blue-200;
   }
+  .heroAnimation {
+    @apply transform transition duration-700 ease-in-out opacity-0 translate-y-10 animate-fade-up;
+  }
+  .animation {
+    @apply transform transition duration-1000 ease-in-out opacity-0 translate-y-10 animate-fade-up;
+  }
 }
 
 @layer base {
