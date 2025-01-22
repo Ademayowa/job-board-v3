@@ -36,7 +36,7 @@ export default function JobList({ jobs }: Props) {
             </p>
 
             <div className='flex mt-2.5'>
-              <button className='rounded bg-[#FF5555] px-5 py-2.5 text-white shadow-sm hover:bg-red-600'>
+              <button className='rounded-md bg-[#FF5555] px-5 py-2.5 text-white shadow-md hover:bg-red-600'>
                 view job
               </button>
             </div>
