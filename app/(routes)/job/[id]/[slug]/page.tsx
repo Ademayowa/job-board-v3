@@ -56,7 +56,7 @@ export default async function JobPage({ params }: Props) {
 
             <div className='lg:px-10 px-6 pb-14'>
               <div>
-                <h2 className='text-[#0F4A7B] text-xl font-bold ml-1 capitalize mt-2'>
+                <h2 className='text-[#0F4A7B] text-2xl font-bold ml-1 capitalize mt-2'>
                   {job.title}
                 </h2>
 
