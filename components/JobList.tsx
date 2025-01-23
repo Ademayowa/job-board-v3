@@ -20,9 +20,9 @@ export default function JobList({ jobs }: Props) {
             className='rounded-lg shadow-sm bg-white p-7 cardAnimation'
           >
             <div className='flex items-center'>
-              <h3 className='flex flex-1 text-[#0F4A7B] text-lg lg:text-xl font-bold capitalize'>
+              <h2 className='flex flex-1 text-[#0F4A7B] text-lg lg:text-xl font-bold capitalize'>
                 {job.title}
-              </h3>
+              </h2>
               <p className='text-[#0F4A7B] font-bold text-lg lg:text-xl'>
                 ${job.salary}
               </p>
