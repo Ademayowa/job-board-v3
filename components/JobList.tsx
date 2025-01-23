@@ -20,15 +20,15 @@ export default function JobList({ jobs }: Props) {
             className='rounded-lg shadow-sm bg-white p-7 cardAnimation'
           >
             <div className='flex items-center'>
-              <h3 className='flex flex-1 text-[#0F4A7B] text-lg font-bold capitalize'>
+              <h3 className='flex flex-1 text-[#0F4A7B] text-xl font-bold capitalize'>
                 {job.title}
               </h3>
-              <p className='text-[#0F4A7B] font-bold'>${job.salary}</p>
+              <p className='text-[#0F4A7B] font-bold text-xl'>${job.salary}</p>
             </div>
 
             <div className='flex items-center space-x-1 mt-3'>
               <MapPin className='h-5 w-5 text-sky-500 -ml-1' />
-              <p className='text-[#707071]'>{job.location}</p>
+              <p className='text-[#707071] text-lg'>{job.location}</p>
             </div>
 
             <p className='text-[#707071] mt-5 !w-full md:w-4/5 leading-8 line-clamp-3'>
@@ -36,7 +36,7 @@ export default function JobList({ jobs }: Props) {
             </p>
 
             <div className='flex mt-2.5'>
-              <button className='rounded-md bg-[#FF5555] px-5 py-2.5 text-white shadow-md hover:bg-red-600'>
+              <button className='rounded-md bg-[#EA5566] px-5 py-2.5 text-white shadow-md hover:bg-red-500'>
                 view job
               </button>
             </div>

@@ -73,7 +73,7 @@ export default function SearchForm() {
         className={`h-14 px-6 sm:w-full md:w-2/12 rounded-md shadow-md flex items-center justify-center ${
           loading
             ? 'bg-gray-400 text-white cursor-not-allowed'
-            : 'bg-[#FF5555] hover:bg-red-600 text-white'
+            : 'bg-[#EA5566] hover:bg-red-500 text-white'
         }`}
         disabled={loading}
       >

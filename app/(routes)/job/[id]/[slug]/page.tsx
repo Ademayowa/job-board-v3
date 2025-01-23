@@ -93,7 +93,7 @@ export default async function JobPage({ params }: Props) {
 
                 <Button
                   asChild
-                  className='mt-5 bg-[#FF5555] text-white shadow-md hover:bg-red-600'
+                  className='mt-5 bg-[#EA5566] text-white shadow-md hover:bg-red-500'
                 >
                   <Link target='_blank' href={`${job.url}`}>
                     Apply for this position
