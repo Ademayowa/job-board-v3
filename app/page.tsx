@@ -34,7 +34,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
   const { data: jobs, meta } = data;
 
   return (
-    <>
+    <main>
       <Hero />
       <BaseLayout className='px-5'>
         <div className='pt-20'>
@@ -57,6 +57,6 @@ export default async function HomePage({ searchParams }: SearchProps) {
           </div>
         )}
       </BaseLayout>
-    </>
+    </main>
   );
 }
