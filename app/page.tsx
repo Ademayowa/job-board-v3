@@ -12,6 +12,8 @@ type SearchProps = {
   };
 };
 
+export const revalidate = 60; // Revalidate the entrire page every 60secs
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
 async function fetchJobs(searchParams: {
@@ -20,9 +22,7 @@ async function fetchJobs(searchParams: {
 }): Promise<PaginationApiResponse> {
   const query = new URLSearchParams({ ...searchParams, limit: '6' }).toString(); // Fetch 6 jobs per page
 
-  const res = await fetch(`${API_URL}/jobs?${query}`, {
-    next: { revalidate: 60 }, // Revalidate every 60 seconds
-  });
+  const res = await fetch(`${API_URL}/jobs?${query}`);
 
   if (!res.ok) throw new Error('Failed to fetch jobs');
 
@@ -36,11 +36,8 @@ export default async function HomePage({ searchParams }: SearchProps) {
   return (
     <main>
       <Hero />
-      <BaseLayout className='px-5'>
-        {/* <div className='pt-20'>
-          <Title title='Latest Jobs' />
-        </div> */}
 
+      <BaseLayout className='px-5'>
         {jobs?.length > 0 ? (
           <div className='pt-20'>
             <Jobs jobs={jobs} />
