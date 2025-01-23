@@ -12,6 +12,8 @@ type Props = {
   };
 };
 
+export const revalidate = 60;
+
 // Generate metadata for job title
 export async function generateMetadata({ params }: Props) {
   const { id } = params;
