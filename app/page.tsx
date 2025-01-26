@@ -19,18 +19,38 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 async function fetchJobs(searchParams: {
   title?: string;
   page?: string;
-}): Promise<PaginationApiResponse> {
+}): Promise<PaginationApiResponse | null> {
   const query = new URLSearchParams({ ...searchParams, limit: '6' }).toString(); // Fetch 6 jobs per page
 
-  const res = await fetch(`${API_URL}/jobs?${query}`);
+  try {
+    const res = await fetch(`${API_URL}/jobs?${query}`);
 
-  if (!res.ok) throw new Error('Failed to fetch jobs');
+    if (!res.ok) throw new Error('Failed to fetch jobs');
 
-  return res.json();
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching jobs:', error);
+    return null;
+  }
 }
 
 export default async function HomePage({ searchParams }: SearchProps) {
   const data = await fetchJobs(searchParams);
+
+  if (!data) {
+    // Handle API failure from the backend
+    return (
+      <>
+        <Hero />
+        <div className='py-10 flex justify-center'>
+          <p className='text-lg text-[#707071]'>
+            Service is temporarily down, please try again later. 🙏
+          </p>
+        </div>
+      </>
+    );
+  }
+
   const { data: jobs, meta } = data;
 
   return (
@@ -39,7 +59,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
 
       <BaseLayout className='px-5'>
         {jobs?.length > 0 ? (
-          <div className='pt-20'>
+          <div className='mt-20'>
             <Jobs jobs={jobs} />
             <Pagination
               currentPage={meta.current_page}
@@ -47,7 +67,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
             />
           </div>
         ) : (
-          <div className='pt-5 pb-20'>
+          <div className='pt-10 pb-20'>
             <p className='text-lg text-[#707071]'>
               No jobs found for your search criteria
             </p>
