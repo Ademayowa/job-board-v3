@@ -3,7 +3,8 @@ import Jobs from '@/components/Jobs';
 import BaseLayout from '@/components/layouts/BaseLayout';
 import Pagination from '@/components/Pagination';
 import Title from '@/components/Title';
-import { PaginationApiResponse } from '@/types';
+import fetchJobs from '@/lib/fetchJobs';
+import Message from '@/components/Message';
 
 type SearchProps = {
   searchParams: {
@@ -14,39 +15,18 @@ type SearchProps = {
 
 export const revalidate = 60; // Revalidate the entrire page every 60secs
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
-
-async function fetchJobs(searchParams: {
-  title?: string;
-  page?: string;
-}): Promise<PaginationApiResponse | null> {
-  const query = new URLSearchParams({ ...searchParams, limit: '6' }).toString(); // Fetch 6 jobs per page
-
-  try {
-    const res = await fetch(`${API_URL}/jobs?${query}`);
-
-    if (!res.ok) throw new Error('Failed to fetch jobs');
-
-    return res.json();
-  } catch (error) {
-    console.error('Error fetching jobs:', error);
-    return null;
-  }
-}
-
 export default async function HomePage({ searchParams }: SearchProps) {
   const data = await fetchJobs(searchParams);
 
   if (!data) {
-    // Handle API failure from the backend
+    // Handle API failure from the backend if the server is down
     return (
       <>
         <Hero />
-        <div className='py-10 flex justify-center'>
-          <p className='text-lg text-[#707071]'>
-            Service is temporarily down, please try again later. 🙏
-          </p>
-        </div>
+        <Message
+          className='py-10 flex justify-center'
+          message='Service is temporarily down, please try again later.'
+        />
       </>
     );
   }
@@ -67,11 +47,11 @@ export default async function HomePage({ searchParams }: SearchProps) {
             />
           </div>
         ) : (
-          <div className='pt-10 pb-20'>
-            <p className='text-lg text-[#707071]'>
-              No jobs found for your search criteria
-            </p>
-          </div>
+          // Response for an unmatch job search to a user
+          <Message
+            className='pt-10 pb-20'
+            message='No jobs found for your search criteria'
+          />
         )}
       </BaseLayout>
     </main>
