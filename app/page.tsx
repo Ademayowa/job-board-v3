@@ -2,7 +2,6 @@ import Hero from '@/components/Hero';
 import Jobs from '@/components/Jobs';
 import BaseLayout from '@/components/layouts/BaseLayout';
 import Pagination from '@/components/Pagination';
-import Title from '@/components/Title';
 import fetchJobs from '@/lib/fetchJobs';
 import Message from '@/components/Message';
 
