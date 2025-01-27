@@ -64,8 +64,7 @@ export default function SearchForm() {
           <button
             type='button'
             onClick={handleClear}
-            className='absolute right-4 w-8 h-8 text-blue-500 hover:text-gray-700 text-2xl flex !items-center justify-center'
-            aria-label='clear input'
+            className='absolute right-4 sm:top-5 md:top-3 w-8 h-8 text-blue-500 hover:bg-gray-200 rounded-md text-2xl'
           >
             ×
           </button>
