@@ -29,7 +29,7 @@ export default function JobList({ jobs }: Props) {
             </div>
 
             <div className='flex items-center space-x-1 mt-3'>
-              <MapPin className='h-5 w-5 text-sky-500 -ml-1' />
+              <MapPin className='h-5 w-5 text-[#62BECB] -ml-1' />
               <p className='text-[#707071] text-lg'>{job.location}</p>
             </div>
 

@@ -43,11 +43,11 @@ export default function SearchForm() {
   return (
     <form
       onSubmit={handleSearch}
-      className='flex flex-col md:flex-row gap-3 items-center bg-white px-5 md:py-4 py-8 rounded-lg md:w-10/12 w-full'
+      className='flex flex-col md:flex-row gap-4 items-center bg-white px-5 md:py-4 py-8 rounded-lg md:w-10/12 w-full'
     >
       <div className='flex items-center w-full rounded-md relative border border-slate-500 md:border-none'>
         <span className='absolute left-4 flex items-center h-full'>
-          <Search aria-hidden='true' className='h-6 w-6 text-blue-500' />
+          <Search aria-hidden='true' className='h-6 w-6 text-[#62BECB]' />
         </span>
 
         <input
@@ -63,7 +63,7 @@ export default function SearchForm() {
           <button
             type='button'
             onClick={handleClear}
-            className='absolute right-4 flex items-center justify-center w-8 h-8 text-blue-500 hover:bg-gray-200 rounded-md text-2xl'
+            className='absolute right-4 flex items-center justify-center w-8 h-8 text-[#62BECB] hover:bg-gray-200 rounded-md text-2xl'
           >
             ×
           </button>
