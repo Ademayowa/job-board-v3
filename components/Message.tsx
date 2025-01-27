@@ -1,7 +1,6 @@
 /* This component handles the messages displayed on the homepage.
   Response message for the API backend service if it is down 
 */
-
 import clsx from 'clsx';
 
 type MessageProps = {
