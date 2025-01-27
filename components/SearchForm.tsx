@@ -45,11 +45,10 @@ export default function SearchForm() {
       onSubmit={handleSearch}
       className='flex flex-col md:flex-row gap-3 items-center bg-white px-5 md:py-4 py-8 rounded-lg md:w-10/12 w-full'
     >
-      <div className='flex items-center w-full rounded-md relative'>
-        <Search
-          aria-hidden='true'
-          className='h-6 w-6 text-blue-500 hidden md:block mr-2'
-        />
+      <div className='flex items-center w-full rounded-md relative border border-slate-500 md:border-none'>
+        <span className='absolute left-4 flex items-center h-full'>
+          <Search aria-hidden='true' className='h-6 w-6 text-blue-500' />
+        </span>
 
         <input
           type='text'
@@ -57,14 +56,14 @@ export default function SearchForm() {
           placeholder='Search jobs by title'
           value={title}
           onChange={handleInputChange}
-          className='w-full h-14 mt-2 md:mt-0 pl-4 md:pl-0 lg:pl-0 rounded-md border border-slate-500 outline-none md:border-none'
+          className='w-full h-14 px-12 rounded-md outline-none'
         />
 
         {title.trim() && (
           <button
             type='button'
             onClick={handleClear}
-            className='absolute right-4 sm:top-5 md:top-3 w-8 h-8 text-blue-500 hover:bg-gray-200 rounded-md text-2xl'
+            className='absolute right-4 flex items-center justify-center w-8 h-8 text-blue-500 hover:bg-gray-200 rounded-md text-2xl'
           >
             ×
           </button>
