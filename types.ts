@@ -13,5 +13,7 @@ export type PaginationApiResponse = {
   meta: {
     current_page: number;
     total_pages: number;
+    total: number;
+    per_page: number;
   };
 };

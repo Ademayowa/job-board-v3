@@ -17,6 +17,8 @@ export const revalidate = 60; // Revalidate the entrire page every 60secs
 export default async function HomePage({ searchParams }: SearchProps) {
   const data = await fetchJobs(searchParams);
 
+  console.log(data);
+
   if (!data) {
     // Handle API failure from the backend if the server is down
     return (
@@ -38,12 +40,13 @@ export default async function HomePage({ searchParams }: SearchProps) {
 
       <BaseLayout className='px-5'>
         {jobs?.length > 0 ? (
-          <div className='mt-20'>
+          <div className='my-20'>
+            <p className='text-lg text-[#707071]'>{meta.total} jobs found</p>
             <Jobs jobs={jobs} />
-            <Pagination
+            {/* <Pagination
               currentPage={meta.current_page}
               totalPages={meta.total_pages}
-            />
+            /> */}
           </div>
         ) : (
           // Response for an unmatch job search to a user
