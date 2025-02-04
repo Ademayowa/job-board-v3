@@ -30,7 +30,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
     );
   }
 
-  const { data: jobs, meta } = data;
+  const { data: jobs, metadata } = data;
 
   return (
     <main>
@@ -39,8 +39,14 @@ export default async function HomePage({ searchParams }: SearchProps) {
       <BaseLayout className='px-5'>
         {jobs?.length > 0 ? (
           <div className='my-20'>
-            <p className='text-lg text-[#707071]'>{meta.total} jobs found</p>
+            <p className='text-lg text-[#707071]'>
+              {metadata?.total} jobs found
+            </p>
             <Jobs jobs={jobs} />
+            {/* <Pagination
+              currentPage={metadata.current_page}
+              totalPages={metadata.total_pages}
+            /> */}
           </div>
         ) : (
           // Response for an unmatch job search to a user

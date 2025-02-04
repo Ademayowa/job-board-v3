@@ -10,7 +10,7 @@ export type Job = {
 
 export type PaginationApiResponse = {
   data: Job[];
-  meta: {
+  metadata: {
     current_page: number;
     total_pages: number;
     total: number;
