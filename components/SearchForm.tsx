@@ -14,7 +14,7 @@ export default function SearchForm() {
 
     if (title.trim()) {
       setLoading(true); // Loading when search begins
-      router.push(`/?title=${encodeURIComponent(title)}`);
+      router.push(`/?query=${encodeURIComponent(title)}`);
     } else {
       router.push('/'); // Clear the URL when input is empty
     }

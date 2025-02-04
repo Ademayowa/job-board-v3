@@ -7,7 +7,7 @@ import Message from '@/components/Message';
 
 type SearchProps = {
   searchParams: {
-    title?: string;
+    query?: string;
     page?: string;
   };
 };
@@ -16,8 +16,6 @@ export const revalidate = 60; // Revalidate the entrire page every 60secs
 
 export default async function HomePage({ searchParams }: SearchProps) {
   const data = await fetchJobs(searchParams);
-
-  console.log(data);
 
   if (!data) {
     // Handle API failure from the backend if the server is down
@@ -43,10 +41,6 @@ export default async function HomePage({ searchParams }: SearchProps) {
           <div className='my-20'>
             <p className='text-lg text-[#707071]'>{meta.total} jobs found</p>
             <Jobs jobs={jobs} />
-            {/* <Pagination
-              currentPage={meta.current_page}
-              totalPages={meta.total_pages}
-            /> */}
           </div>
         ) : (
           // Response for an unmatch job search to a user
