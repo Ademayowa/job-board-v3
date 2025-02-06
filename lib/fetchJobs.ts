@@ -5,7 +5,7 @@ export default async function fetchJobs(searchParams: {
   query?: string;
   page?: string;
 }): Promise<PaginationApiResponse | null> {
-  const query = new URLSearchParams({ ...searchParams, limit: '6' }).toString(); // Fetch 6 jobs per page
+  const query = new URLSearchParams({ ...searchParams, limit: '8' }).toString(); // Fetch 8 jobs per page
 
   try {
     const res = await fetch(`${API_URL}/jobs?${query}`);

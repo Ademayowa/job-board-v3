@@ -23,7 +23,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
       <>
         <Hero />
         <Message
-          className='py-10 flex justify-center'
+          className='py-16 flex justify-center'
           message='Service is temporarily down, please try again later.'
         />
       </>
@@ -50,10 +50,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
           </div>
         ) : (
           // Response for an unmatch job search to a user
-          <Message
-            className='pt-10 pb-20'
-            message='No jobs found for your search criteria'
-          />
+          <Message className='py-16 text-center' message='No jobs found' />
         )}
       </BaseLayout>
     </main>

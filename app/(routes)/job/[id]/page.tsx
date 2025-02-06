@@ -8,13 +8,12 @@ import { Button } from '@/components/ui/button';
 type Props = {
   params: {
     id: string;
-    slug: string;
   };
 };
 
 export const revalidate = 60;
 
-// Generate metadata for job title
+// Generate metadata for job title dynamically
 export async function generateMetadata({ params }: Props) {
   const { id } = params;
   const job = await fetchJob(id);
@@ -27,16 +26,10 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function JobPage({ params }: Props) {
-  const { id, slug } = params;
+  const { id } = params;
   const job = await fetchJob(id);
 
   if (!job) {
-    notFound();
-  }
-
-  // Validate slug
-  const expectedSlug = job.title.toLowerCase().replace(/\s+/g, '-');
-  if (slug !== expectedSlug) {
     notFound();
   }
 
