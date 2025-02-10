@@ -46,3 +46,19 @@ export async function fetchAllJobs(): Promise<Job[]> {
     throw new Error('Failed to fetch jobs');
   }
 }
+
+export async function fetchRecentJobs() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs/recent`);
+  if (!res.ok) throw new Error('Failed to fetch recent jobs');
+  return res.json();
+}
+
+export async function fetchHighestSalaryJobs() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/jobs/highest-salary`
+  );
+
+  if (!res.ok) throw new Error('Failed to fetch highest salary jobs');
+  return res.json();
+  console.log(res);
+}
