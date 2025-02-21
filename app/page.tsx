@@ -18,8 +18,7 @@ export const revalidate = 60; // Revalidate entire page every 60secs
 export default async function HomePage({ searchParams }: SearchProps) {
   const data = await fetchJobs(searchParams);
 
-  console.log(data);
-
+  
   if (!data) {
     return (
       <>
