@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { fetchJob } from '@/lib/api';
+import { fetchJob } from '@/lib/fetchJob';
 import { MapPin, DollarSign, ChevronLeft } from 'lucide-react';
 import BaseLayout from '@/components/layouts/BaseLayout';
 import { Button } from '@/components/ui/button';
@@ -59,7 +59,7 @@ export default async function JobPage({ params }: Props) {
                   <MapPin className='w-5 h-5 text-[#62BECB] mr-1' />
                   <p className='text-[#707071] mr-3'>{job.location}</p>
                   <DollarSign className='w-5 h-5 text-[#62BECB]' />
-                  <p className='text-[#707071]'>{job.salary}</p>
+                  <p className='text-[#707071]'>{job.salary}k</p>
                 </div>
               </div>
               <hr className='border-b border-red-200' />

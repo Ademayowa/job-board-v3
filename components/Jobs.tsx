@@ -1,41 +1,60 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import JobList from '@/components/JobList';
-import JobFilter from '@/components/JobFilter';
-import { Job } from '@/types';
+import { useSearchParams } from 'next/navigation';
+import JobList from './JobList';
+import Message from './Message';
+import Loading from './Loading';
 
 type JobsProps = {
-  initialJobs: Job[];
+  initialJobs: any[];
   filter: string;
+  searchQuery: string;
 };
 
-export default function Jobs({ initialJobs, filter }: JobsProps) {
-  const [jobs, setJobs] = useState<Job[]>(initialJobs);
+export default function Jobs({ initialJobs }: JobsProps) {
+  const [jobs, setJobs] = useState<any[]>(initialJobs);
+  const [loading, setLoading] = useState(false);
+
+  // Reacts to URL changes dynamically
+  const searchParams = useSearchParams();
+
+  const searchQuery = searchParams.get('query') || '';
+  const sortFilter = searchParams.get('sort') || '';
 
   useEffect(() => {
     const fetchFilteredJobs = async () => {
+      setLoading(true);
       try {
-        const response = await fetch(`/api/jobs/${filter}`);
+        const params = new URLSearchParams();
+        if (searchQuery) params.set('query', searchQuery);
+        if (sortFilter) params.set('sort', sortFilter);
+
+        const response = await fetch(`/api/jobs?${params.toString()}`);
         if (!response.ok) throw new Error('Failed to fetch jobs');
+
         const data = await response.json();
-        setJobs(data.data || []);
+
+        setJobs(Array.isArray(data) ? data : data?.data || []);
       } catch (error) {
-        console.error('Error fetching filtered jobs:', error);
+        setJobs([]);
+      } finally {
+        setLoading(false);
       }
     };
 
-    if (filter) {
-      fetchFilteredJobs();
-    } else {
-      setJobs(initialJobs);
-    }
-  }, [filter, initialJobs]);
+    fetchFilteredJobs();
+  }, [searchQuery, sortFilter]); // Re-fetch when search params change
 
   return (
     <>
-      <JobFilter filter={filter} />
-      <JobList jobs={jobs} />
+      {loading ? (
+        <Loading />
+      ) : jobs.length > 0 ? (
+        <JobList jobs={jobs} />
+      ) : (
+        <Message className='text-center' message='No jobs found' />
+      )}
     </>
   );
 }

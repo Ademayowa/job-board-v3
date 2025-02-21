@@ -20,7 +20,7 @@ export default function JobList({ jobs }: JobListProps) {
               {job.title}
             </h2>
             <p className='text-[#0F4A7B] font-bold text-lg lg:text-xl'>
-              ${job.salary}
+              ${job.salary}k
             </p>
           </div>
 

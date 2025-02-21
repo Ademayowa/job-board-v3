@@ -1,30 +1,46 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function GET(req: NextRequest) {
   try {
-    // Make GET request to the external API
-    const response = await fetch(`${API_URL}/jobs`, {
+    const { searchParams } = new URL(req.url);
+    const query = searchParams.get('query') || '';
+    const sort = searchParams.get('sort') || '';
+
+    let endpoint = `${API_URL}/jobs`;
+
+    // Apply sorting if available
+    if (sort === 'most-recent') {
+      endpoint = `${API_URL}/jobs/recent`;
+    } else if (sort === 'highest-salary') {
+      endpoint = `${API_URL}/jobs/highest-salary`;
+    }
+
+    // Append search query if provided
+    if (query) {
+      endpoint += `?query=${encodeURIComponent(query)}`;
+    }
+
+    const response = await fetch(endpoint, {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
     });
 
-    // Check if the external API request failed
     if (!response.ok) {
-      const err = await response.json();
       return NextResponse.json(
-        { error: 'Failed to fetch jobs', err },
-        { status: 500 }
+        { error: 'Failed to fetch jobs' },
+        { status: response.status }
       );
     }
 
-    // Respond with the fetched jobs if the API request was successful
-    const result = await response.json();
-    return NextResponse.json(result);
+    const data = await response.json();
+    return NextResponse.json(data);
   } catch (error) {
-    console.error(error);
+    console.error('Error in jobs API:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }
