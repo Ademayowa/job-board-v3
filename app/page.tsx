@@ -13,13 +13,13 @@ type SearchProps = {
   };
 };
 
-export const revalidate = 60; // Revalidate entire page every 60secs
+export const revalidate = 60; // Revalidate the entire page every 60secs
 
 export default async function HomePage({ searchParams }: SearchProps) {
   const data = await fetchJobs(searchParams);
 
-  
   if (!data) {
+    // Handle API failure from the backend if the server is down
     return (
       <>
         <Hero />
@@ -63,6 +63,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
             />
           </div>
         ) : (
+          // Response for an unmatch job search to a user
           <Message className='py-16 text-center' message='No jobs found' />
         )}
       </BaseLayout>
