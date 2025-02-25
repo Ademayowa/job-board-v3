@@ -5,20 +5,22 @@ import { useRouter, useSearchParams } from 'next/navigation';
 export default function JobFilter() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const currentSort = searchParams.get('sort') || '';
-  const searchQuery = searchParams.get('query') || '';
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSort = event.target.value;
+  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newSort = e.target.value;
 
-    // Preserve existing search parameters
+    // Preserve the existing query search in the form when a dropdown is selected
     const params = new URLSearchParams(window.location.search);
 
     if (newSort) {
       params.set('sort', newSort);
     }
 
-    router.push(`/?${params.toString()}`, { scroll: false });
+    router.push(`/?${params.toString()}`, {
+      scroll: false,
+    });
   };
 
   return (

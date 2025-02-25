@@ -16,7 +16,6 @@ export default function Jobs({ initialJobs }: JobsProps) {
   const [jobs, setJobs] = useState<any[]>(initialJobs);
   const [loading, setLoading] = useState(false);
 
-  // Reacts to URL changes dynamically
   const searchParams = useSearchParams();
 
   const searchQuery = searchParams.get('query') || '';
@@ -25,14 +24,14 @@ export default function Jobs({ initialJobs }: JobsProps) {
   useEffect(() => {
     const fetchFilteredJobs = async () => {
       setLoading(true);
+
       try {
         const params = new URLSearchParams();
+
         if (searchQuery) params.set('query', searchQuery);
         if (sortFilter) params.set('sort', sortFilter);
 
         const response = await fetch(`/api/jobs?${params.toString()}`);
-        if (!response.ok) throw new Error('Failed to fetch jobs');
-
         const data = await response.json();
 
         setJobs(Array.isArray(data) ? data : data?.data || []);
@@ -44,7 +43,7 @@ export default function Jobs({ initialJobs }: JobsProps) {
     };
 
     fetchFilteredJobs();
-  }, [searchQuery, sortFilter]); // Re-fetch when search params change
+  }, [searchQuery, sortFilter]);
 
   return (
     <>
