@@ -15,6 +15,8 @@ export async function GET(req: NextRequest) {
       endpoint = `${API_URL}/jobs/recent`;
     } else if (sort === 'highest-salary') {
       endpoint = `${API_URL}/jobs/highest-salary`;
+    } else if (sort === 'all-jobs') {
+      endpoint = `${API_URL}/jobs`; // Get all jobs by default
     }
 
     // Append search query if provided
