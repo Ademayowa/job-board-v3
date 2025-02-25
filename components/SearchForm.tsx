@@ -5,9 +5,10 @@ import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
 
 export default function SearchForm() {
-  const router = useRouter();
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
