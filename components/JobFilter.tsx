@@ -1,6 +1,13 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 export default function JobFilter() {
   const router = useRouter();
@@ -8,9 +15,7 @@ export default function JobFilter() {
 
   const currentSort = searchParams.get('sort') || '';
 
-  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSort = e.target.value;
-
+  const handleSortChange = (newSort: string) => {
     // Preserve the existing query search in the form when a dropdown is selected
     const params = new URLSearchParams(window.location.search);
 
@@ -24,16 +29,15 @@ export default function JobFilter() {
   };
 
   return (
-    <>
-      <select
-        className='border p-2 rounded-md lg:text-lg text-[#707071]'
-        onChange={handleSortChange}
-        value={currentSort}
-      >
-        <option value=''>Sort By</option>
-        <option value='most-recent'>Most Recent</option>
-        <option value='highest-salary'>Highest Salary</option>
-      </select>
-    </>
+    <Select onValueChange={handleSortChange} value={currentSort}>
+      <SelectTrigger className='w-[180px] lg:text-lg text-[#707071]'>
+        <SelectValue placeholder='Sort By' />
+      </SelectTrigger>
+
+      <SelectContent className='text-[#707071]'>
+        <SelectItem value='most-recent'>Most Recent</SelectItem>
+        <SelectItem value='highest-salary'>Highest Salary</SelectItem>
+      </SelectContent>
+    </Select>
   );
 }
