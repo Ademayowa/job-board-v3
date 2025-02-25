@@ -19,7 +19,11 @@ export default function JobFilter() {
     // Preserve the existing query search in the form when a dropdown is selected
     const params = new URLSearchParams(window.location.search);
 
-    if (newSort) {
+    // Remove the sort parameter from the URL when 'All jobs' dropdown is selected
+    if (newSort === 'all-jobs') {
+      params.delete('sort');
+    } else if (newSort) {
+      // Set the sort parameter for other dropdown options
       params.set('sort', newSort);
     }
 
@@ -35,8 +39,9 @@ export default function JobFilter() {
       </SelectTrigger>
 
       <SelectContent className='text-[#707071]'>
-        <SelectItem value='most-recent'>Most Recent</SelectItem>
-        <SelectItem value='highest-salary'>Highest Salary</SelectItem>
+        <SelectItem value='all-jobs'>All jobs</SelectItem>
+        <SelectItem value='most-recent'>Most recent</SelectItem>
+        <SelectItem value='highest-salary'>Highest salary</SelectItem>
       </SelectContent>
     </Select>
   );

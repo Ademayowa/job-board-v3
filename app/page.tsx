@@ -46,7 +46,7 @@ export default async function HomePage({ searchParams }: SearchProps) {
             <div className='flex items-center py-2'>
               <p className='lg:text-lg text-[#707071] border bg-white px-4 py-2 rounded-md'>
                 Jobs
-                <span className='border border-blue-300 rounded px-2 ml-3'>
+                <span className='border border-[#62BECB] rounded px-2 ml-3'>
                   {metadata?.total}
                 </span>
               </p>
