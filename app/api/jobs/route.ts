@@ -11,11 +11,11 @@ export async function GET(req: NextRequest) {
     let endpoint = `${API_URL}/jobs`;
 
     // Apply sorting if available
-    if (sort === 'most-recent') {
+    if (sort === 'recent') {
       endpoint = `${API_URL}/jobs/recent`;
     } else if (sort === 'highest-salary') {
       endpoint = `${API_URL}/jobs/highest-salary`;
-    } else if (sort === 'all-jobs') {
+    } else if (sort === 'most-relevant') {
       endpoint = `${API_URL}/jobs`; // Get all jobs by default
     }
 
