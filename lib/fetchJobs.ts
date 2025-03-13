@@ -9,7 +9,7 @@ export default async function fetchJobs(searchParams: {
 }): Promise<PaginationApiResponse | null> {
   const query = new URLSearchParams({
     ...searchParams,
-    limit: '10',
+    limit: '6',
   }).toString();
 
   try {

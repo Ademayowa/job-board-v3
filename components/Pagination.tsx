@@ -21,10 +21,10 @@ export default function Pagination({
     router.push(`/?${params.toString()}`);
 
     // Smoothly scroll to the job list card after clicking the pagination button
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: 'smooth',
+    // });
   };
 
   return (

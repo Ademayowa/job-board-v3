@@ -3,6 +3,7 @@ import Jobs from '@/components/Jobs';
 import BaseLayout from '@/components/layouts/BaseLayout';
 import JobFilter from '@/components/JobFilter';
 import Message from '@/components/Message';
+import Pagination from '@/components/Pagination';
 import fetchJobs from '@/lib/fetchJobs';
 
 type SearchProps = {
@@ -60,6 +61,11 @@ export default async function HomePage({ searchParams }: SearchProps) {
               initialJobs={jobs}
               filter={sortFilter}
               searchQuery={searchQuery}
+            />
+
+            <Pagination
+              currentPage={metadata.current_page}
+              totalPages={metadata.total_pages}
             />
           </div>
         ) : (
