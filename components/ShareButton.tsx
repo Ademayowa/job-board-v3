@@ -13,7 +13,7 @@ export default function ShareButton({ jobId }: ShareButtonProps) {
   const handleShareClick = async () => {
     try {
       // Construct the shareable URL directly
-      const shareableLink = `${window.location.origin}/jobs/${jobId}`;
+      const shareableLink = `${window.location.origin}/job/${jobId}`;
 
       // Copy to clipboard
       await navigator.clipboard.writeText(shareableLink);
@@ -21,24 +21,24 @@ export default function ShareButton({ jobId }: ShareButtonProps) {
       // Show copied notification
       setCopied(true);
 
-      // Hide notification after 2 seconds
-      setTimeout(() => setCopied(false), 2000);
+      // Hide notification after 8 seconds
+      setTimeout(() => setCopied(false), 8000);
     } catch (error) {
       console.error('Error sharing job:', error);
     }
   };
 
   return (
-    <div>
+    <div className='relative'>
       <button
         onClick={handleShareClick}
-        className='rounded-full border border-blue-200 p-2'
+        className='rounded-full border border-[#62BECB] p-1'
       >
         <Share2 className='text-[#62BECB]' />
       </button>
 
       {copied && (
-        <div className='absolute -top-10 right-0 bg-black text-white text-xs px-2 py-1 rounded'>
+        <div className='absolute -top-20 right-0 bg-[#F2F7FB] text-[#0F4A7B] text-xs px-6 py-1 rounded-md'>
           Link copied!
         </div>
       )}
