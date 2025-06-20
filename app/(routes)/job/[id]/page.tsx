@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { fetchJob } from '@/lib/fetchJob';
-import { MapPin, DollarSign, ChevronLeft } from 'lucide-react';
+import { MapPin, DollarSign, ChevronLeft, Share2 } from 'lucide-react';
 import BaseLayout from '@/components/layouts/BaseLayout';
 import { Button } from '@/components/ui/button';
+import ShareButton from '@/components/ShareButton';
 
 type Props = {
   params: {
@@ -51,9 +52,15 @@ export default async function JobPage({ params }: Props) {
 
             <div className='lg:px-10 px-6 pb-14'>
               <div>
-                <h2 className='text-[#0F4A7B] text-2xl font-bold ml-1 capitalize mt-2'>
-                  {job.title}
-                </h2>
+                <div className='flex items-center'>
+                  <h2 className='text-[#0F4A7B] text-2xl font-bold ml-1 capitalize mt-2'>
+                    {job.title}
+                  </h2>
+                  {/* Share job button */}
+                  <div className='flex justify-end flex-1'>
+                    <ShareButton jobId={job.id} />
+                  </div>
+                </div>
 
                 <div className='flex items-center pt-4 pb-3'>
                   <MapPin className='w-5 h-5 text-[#62BECB] mr-1' />

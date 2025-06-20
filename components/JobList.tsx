@@ -19,6 +19,7 @@ export default function JobList({ jobs }: JobListProps) {
             <h2 className='flex flex-1 text-[#0F4A7B] text-lg lg:text-xl font-bold capitalize'>
               {job.title}
             </h2>
+
             <p className='text-[#0F4A7B] font-bold text-lg lg:text-xl'>
               ${job.salary}k
             </p>
