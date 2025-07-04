@@ -11,7 +11,7 @@ export async function fetchJob(id: string): Promise<Job | null> {
       headers: {
         'Content-Type': 'application/json',
       },
-      next: { revalidate: 60 }, // Revalidate every 60 seconds
+      cache: 'no-store', // Always fetch fresh data, don't use cache
     });
 
     if (!response.ok) {
