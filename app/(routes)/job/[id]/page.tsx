@@ -56,6 +56,7 @@ export default async function JobPage({ params }: Props) {
                   <h2 className='text-[#0F4A7B] text-2xl font-bold ml-1 capitalize mt-2'>
                     {job.title}
                   </h2>
+
                   {/* Share job button */}
                   <div className='flex justify-end flex-1'>
                     <ShareButton jobId={job.id} />

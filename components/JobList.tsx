@@ -33,6 +33,7 @@ export default function JobList({ jobs }: JobListProps) {
 
             <p className='text-[#0F4A7B]'>${job.salary}k</p>
 
+            {/* Job expiration section */}
             <div className='flex items-center -ml-1'>
               {job.expired ? (
                 <span className='text-gray-500 text-sm font-medium'>
