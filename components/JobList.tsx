@@ -40,7 +40,7 @@ export default function JobList({ jobs }: JobListProps) {
                   Expired
                 </span>
               ) : (
-                <span className='text-red-500 text-sm font-medium ml-1 bg-red-200 py-1 rounded px-2'>
+                <span className='text-red-500 text-xs font-medium ml-1 bg-red-100 py-1 rounded px-2'>
                   {formatExpirationMessage(
                     getDaysUntilExpiration(job.created_at)
                   )}
