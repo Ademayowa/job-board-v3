@@ -38,7 +38,7 @@ export default async function JobPage({ params }: Props) {
     <section className='bg-[#F2F7FB]'>
       <BaseLayout>
         <div className='py-10 pb-10'>
-          <div className='bg-white rounded-2xl drop-shadow-md w-full lg:w-10/12 mx-auto animation'>
+          <div className='bg-white rounded-2xl border border-gray-300 w-full lg:w-10/12 mx-auto animation'>
             <div className='lg:px-10 px-6'>
               <Button variant='ghost' asChild>
                 <Link

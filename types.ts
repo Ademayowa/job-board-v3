@@ -6,6 +6,8 @@ export type Job = {
   salary: string;
   duties: string[];
   url?: string;
+  created_at: string;
+  expired: boolean;
 };
 
 export type PaginationApiResponse = {

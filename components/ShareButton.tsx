@@ -32,7 +32,7 @@ export default function ShareButton({ jobId }: ShareButtonProps) {
     <div className='relative'>
       <button
         onClick={handleShareClick}
-        className='rounded-full border border-[#62BECB] p-1'
+        className='rounded-full border border-[#62BECB] p-2'
       >
         <Share2 className='text-[#62BECB]' />
       </button>
