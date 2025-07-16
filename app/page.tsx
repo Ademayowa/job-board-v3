@@ -4,6 +4,7 @@ import BaseLayout from '@/components/layouts/BaseLayout';
 import JobFilter from '@/components/JobFilter';
 import Message from '@/components/Message';
 import fetchJobs from '@/lib/fetchJobs';
+import Pagination from '@/components/Pagination';
 
 type SearchProps = {
   searchParams: {
@@ -61,6 +62,11 @@ export default async function HomePage({ searchParams }: SearchProps) {
               filter={sortFilter}
               searchQuery={searchQuery}
             />
+            {/* 
+            <Pagination
+              currentPage={metadata?.current_page}
+              totalPages={metadata?.total_pages}
+            /> */}
           </div>
         ) : (
           // Response for an unmatch job search to a user

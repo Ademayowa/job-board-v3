@@ -23,18 +23,9 @@ export default function JobList({ jobs }: JobListProps) {
             <h2 className='flex flex-1 text-[#0F4A7B] text-lg lg:text-xl font-bold capitalize'>
               {job.title}
             </h2>
-          </div>
-
-          <div className='flex flex-col gap-2 space-y-1'>
-            <div className='mt-2 flex items-center space-x-1'>
-              <MapPin className='h-5 w-5 text-[#62BECB] -ml-1' />
-              <p className='text-[#707071]'>{job.location}</p>
-            </div>
-
-            <p className='text-[#0F4A7B]'>${job.salary}k</p>
 
             {/* Job expiration section */}
-            <div className='flex items-center -ml-1'>
+            <div className='flex flex-1 justify-end items-center -ml-1'>
               {job.expired ? (
                 <span className='text-gray-500 text-sm font-medium'>
                   Expired
@@ -47,6 +38,15 @@ export default function JobList({ jobs }: JobListProps) {
                 </span>
               )}
             </div>
+          </div>
+
+          <div className='flex flex-col gap-2 space-y-1'>
+            <div className='mt-2 flex items-center space-x-1'>
+              <MapPin className='h-5 w-5 text-[#62BECB] -ml-1' />
+              <p className='text-[#707071]'>{job.location}</p>
+            </div>
+
+            <p className='text-[#0F4A7B]'>${job.salary}</p>
           </div>
 
           <p className='text-[#707071] mt-5 !w-full md:w-4/5 leading-8 line-clamp-3'>
