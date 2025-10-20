@@ -63,10 +63,10 @@ export default async function HomePage({ searchParams }: SearchProps) {
               searchQuery={searchQuery}
             />
 
-            <Pagination
+            {/* <Pagination
               currentPage={metadata?.current_page}
               totalPages={metadata?.total_pages}
-            />
+            /> */}
           </div>
         ) : (
           // Response for an unmatch job search to a user
