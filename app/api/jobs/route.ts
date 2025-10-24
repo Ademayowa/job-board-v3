@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export const dynamic = 'force-dynamic';
+export const revalidate = 0; // Add this
 
 export async function GET(req: NextRequest) {
   try {
@@ -11,16 +13,14 @@ export async function GET(req: NextRequest) {
     
     let endpoint = `${API_URL}/jobs`;
     
-    // Apply sorting if available
     if (sort === 'recent') {
       endpoint = `${API_URL}/jobs/recent`;
     } else if (sort === 'highest-salary') {
       endpoint = `${API_URL}/jobs/highest-salary`;
     } else if (sort === 'most-relevant') {
-      endpoint = `${API_URL}/jobs`; // Get all jobs by default
+      endpoint = `${API_URL}/jobs`;
     }
     
-    // Append search query if provided
     if (query) {
       endpoint += `?query=${encodeURIComponent(query)}`;
     }
@@ -28,6 +28,8 @@ export async function GET(req: NextRequest) {
     const response = await fetch(endpoint, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
+      cache: 'no-store', // Add this
+      next: { revalidate: 0 }, // Add this
     });
     
     if (!response.ok) {
@@ -38,7 +40,15 @@ export async function GET(req: NextRequest) {
     }
     
     const data = await response.json();
-    return NextResponse.json(data);
+    
+    // Add cache control headers to response
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+      },
+    });
   } catch (error) {
     console.error('Error in jobs API:', error);
     return NextResponse.json(
