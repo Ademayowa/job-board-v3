@@ -28,7 +28,7 @@ Make sure you have the following installed on your machine:
 
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en)
-- [yarn](https://yarnpkg.com/) (Yarn Package Manager)
+- [pnpm](https://pnpm.io/installation) (Pnpm Package Manager)
 
 **Cloning the Repository**
 
@@ -38,16 +38,16 @@ git clone https://github.com/Ademayowa/job-board-v3.git
 
 **Installation**
 
-Install the project dependencies using yarn:
+Install the project dependencies using pnpm:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 **Running the Project**
 
 ```bash
-yarn run dev
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
