@@ -18,7 +18,7 @@ export default function JobList({ jobs }: JobListProps) {
           className="block rounded-2xl bg-white border border-gray-300 p-7 cardAnimation"
         >
           <div className="flex items-center">
-            <h2 className="flex flex-1 text-[#0F4A7B] text-lg lg:text-xl font-bold capitalize">
+            <h2 className="flex flex-1 text-[#0F4A7B] text-xl font-bold capitalize">
               {job.title}
             </h2>
           </div>
