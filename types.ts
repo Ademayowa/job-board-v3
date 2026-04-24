@@ -3,7 +3,7 @@ export type Job = {
   title: string;
   description: string;
   location: string;
-  salary: string;
+  salary: number;
   duties: string[];
   url?: string;
   created_at: string;
